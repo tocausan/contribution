@@ -36,7 +36,7 @@ function contribute(amount) {
     });
 }
 
-contribute(50)
+contribute(5)
     .then((res) => {
         console.log(res);
     })
