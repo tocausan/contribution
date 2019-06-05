@@ -2,7 +2,7 @@ var exec = require('child-process-promise').exec;
 
 function contribute(filename){
     return new Promise((response, reject) => {
-        exec('touch ' +filename + 'txt && echo contribution >> ' + filename + '.txt')
+        exec('touch ' +filename + '.txt && echo contribution >> ' + filename + '.txt')
         .then((res) => {
             exec('cd /mnt/c/Scripts/contribution && git pull && git add . && git commit -m "add contribution" && git push')
             .then((res) => {
