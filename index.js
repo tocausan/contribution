@@ -4,16 +4,18 @@ function contribute(){
     return new Promise((response, reject) => {
         exec('echo contribution >> test.txt')
         .then((res) => {
-            exec('cd /mnt/c/Scripts/contribution && git pull && git add . && git commit -m "add contribution" && git push')
-            .then((res) => {
-                response({
-                    stdout: res.stdout,
-                    stderr: res.stderr   
+            setTimeout(() => {
+                exec('cd /mnt/c/Scripts/contribution && git pull && git add . && git commit -m "add contribution" && git push')
+                .then((res) => {
+                    response({
+                        stdout: res.stdout,
+                        stderr: res.stderr   
+                    });
+                })
+                .catch((err) => {
+                    reject(err);
                 });
-            })
-            .catch((err) => {
-                reject(err);
-            });
+            }, 1000);
         })
         .catch((err) => {
             reject(err);
