@@ -8,7 +8,7 @@ async function commit() {
         await exec('git pull');
         await exec('git add . && git commit -m "contribute"');
         return exec('git push')
-            .then((res) => console.log(res.stdout))
+            .then((res) => console.log(res.stderr))
     } catch (e) {
         console.log(e);
     }
