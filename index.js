@@ -4,13 +4,24 @@ const contributionFileName = 'contribution.txt';
 
 async function commit() {
     try {
-        await exec('cd ' + path);
-        await exec('git pull');
-        await exec('git add . && git commit -m "contribute"');
+        await exec('cd ' + path)
+            .catch((err) => {
+                throw err;
+            });
+        await exec('git pull')
+            .catch((err) => {
+                throw err;
+            });
+        await exec('git add . && git commit -m "contribute"')
+            .catch((err) => {
+                throw err;
+            });
         return exec('git push')
-            .then((res) => console.log(res.stderr))
+            .catch((err) => {
+                throw err;
+            });
     } catch (e) {
-        console.log(e);
+        console.log('err: ' + e);
     }
 }
 
@@ -23,7 +34,7 @@ function contribute(amount) {
     });
 }
 
-contribute(5)
+contribute(50)
     .then((res) => {
         console.log(res);
     })
