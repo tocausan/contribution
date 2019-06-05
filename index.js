@@ -2,7 +2,7 @@ var exec = require('child-process-promise').exec;
 
 function contribute(filename){
     return new Promise((response, reject) => {
-        exec('touch ' +filename + '.txt && echo contribution >> ' + filename + '.txt')
+        exec('echo contribution >> contribution.txt')
         .then((res) => {
             exec('cd /mnt/c/Scripts/contribution && git pull && git add . && git commit -m "add contribution" && git push')
             .then((res) => {
@@ -25,7 +25,7 @@ function contribute(filename){
 
 for(let i = 1; i <= 20; i++){
     setTimeout(() => {
-        contribute(i)
+        contribute((new Date()).getDate().toString())
                
     }, i * 1000);
 }
