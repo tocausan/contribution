@@ -3,26 +3,22 @@ const path = '/mnt/c/Scripts/contribution';
 const contributionFileName = 'contribution.txt';
 
 async function commit() {
-    try {
-        await exec('cd ' + path)
-            .catch((err) => {
-                throw err;
-            });
-        await exec('git pull')
-            .catch((err) => {
-                throw err;
-            });
-        await exec('git add . && git commit -m "contribute"')
-            .catch((err) => {
-                throw err;
-            });
-        return exec('git push')
-            .catch((err) => {
-                throw err;
-            });
-    } catch (e) {
-        console.log('err: ' + e);
-    }
+    await exec('cd ' + path)
+        .catch((err) => {
+            throw err;
+        });
+    await exec('git pull')
+        .catch((err) => {
+            throw err;
+        });
+    await exec('git add . && git commit -m "contribute"')
+        .catch((err) => {
+            throw err;
+        });
+    return exec('git push')
+        .catch((err) => {
+            throw err;
+        });
 }
 
 function contribute(amount) {
