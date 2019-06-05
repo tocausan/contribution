@@ -3,10 +3,14 @@ const path = '/mnt/c/Scripts/contribution';
 const contributionFileName = 'contribution.txt';
 
 async function commit() {
-    await exec('cd ' + path);
-    await exec('git pull');
-    await exec('git add . && git commit -m "contribute"');
-    await exec('git push');
+    try {
+        await exec('cd ' + path);
+        await exec('git pull');
+        await exec('git add . && git commit -m "contribute"');
+        await exec('git push');
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 function contribute(amount) {
@@ -14,9 +18,14 @@ function contribute(amount) {
         for (let i = 0; i <= amount; i++) {
             await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName)
         }
-
-       await commit();
+        return commit();
     });
 }
 
-contribute(5);
+contribute(5)
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
