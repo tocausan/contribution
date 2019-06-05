@@ -27,5 +27,5 @@ for(let i = 1; i <= 1; i++){
     setTimeout(() => {
         contribute((new Date()).getDate().toString())
                
-    }, i * 1000);
+    }, i * 100);
 }
