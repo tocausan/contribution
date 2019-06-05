@@ -7,7 +7,7 @@ async function commit() {
         await exec('cd ' + path);
         await exec('git pull');
         await exec('git add . && git commit -m "contribute"');
-        await exec('git push');
+        return exec('git push');
     } catch (e) {
         console.log(e);
     }
