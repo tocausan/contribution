@@ -21,8 +21,11 @@ function contribute(filename){
     })
 }
 
-for(let i = 0; i < 20; i++){
+
+
+for(let i = 1; i <= 20; i++){
     setTimeout(() => {
-        contribute(i);        
-    }, 1000);
+        contribute(i)
+               
+    }, i * 1000);
 }
