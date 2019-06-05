@@ -26,11 +26,11 @@ function contribute(amount) {
         for (let i = 0; i <= amount; i++) {
             await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName)
                 .catch((err) => {
-                    throw err;
+                    reject(err);
                 });
             await commit()
                 .catch((err) => {
-                    throw err;
+                    reject(err);
                 });
         }
     });
