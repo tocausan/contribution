@@ -25,6 +25,9 @@ function contribute(amount) {
     return new Promise(async (response, reject) => {
         for (let i = 0; i <= amount; i++) {
             await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName)
+                .catch((err) => {
+                    throw err;
+                });
             await commit()
                 .catch((err) => {
                     throw err;
