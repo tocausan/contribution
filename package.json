@@ -1,0 +1,22 @@
+{
+  "name": "contribution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tocausan/contribution.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tocausan/contribution/issues"
+  },
+  "homepage": "https://github.com/tocausan/contribution#readme",
+  "dependencies": {
+    "child-process-promise": "^2.2.1"
+  }
+}
