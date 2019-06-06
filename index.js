@@ -11,7 +11,7 @@ async function commit() {
         .catch((err) => {
             throw err;
         });
-    await exec('git add . && git commit -m "contribute"')
+    await exec('git add . && git commit -m "contribution on ' + (new Date()).getTime().toString() + '"')
         .catch((err) => {
             throw err;
         });
