@@ -1,6 +1,6 @@
 const exec = require('child-process-promise').exec;
 const path = '/mnt/c/Scripts/contribution';
-const contributionFileName = 'contribution.txt';
+const contributionFileName = 'contribution/test';
 
 async function commit() {
     await exec('cd ' + path)
@@ -24,7 +24,7 @@ async function commit() {
 function contribute(amount) {
     return new Promise(async (response, reject) => {
         for (let i = 0; i <= amount; i++) {
-            await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName)
+            await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName + + '.txt')
                 .catch((err) => {
                     reject(err);
                 });
