@@ -24,7 +24,14 @@ async function commit() {
 function contribute(amount) {
     return new Promise(async (response, reject) => {
         for (let i = 0; i <= amount; i++) {
+           /*
             await exec('echo "contribution on ' + (new Date()).getTime().toString() + '" >> ' + contributionFileName + '-' + (new Date()).getTime().toString() + '.txt')
+                .catch((err) => {
+                    reject(err);
+                });
+                
+            */
+            await exec('echo "function hello(){console.log(\"hello\"}" >> ' + contributionFileName + '-' + (new Date()).getTime().toString() + '.js')
                 .catch((err) => {
                     reject(err);
                 });
