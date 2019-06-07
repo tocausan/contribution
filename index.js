@@ -29,7 +29,7 @@ function contribute(amount) {
                 .catch((err) => {
                     reject(err);
                 });
-                
+
             */
             await exec('echo "function hello(){console.log(\"hello\"}" >> ' + contributionFileName + '-' + (new Date()).getTime().toString() + '.js')
                 .catch((err) => {
